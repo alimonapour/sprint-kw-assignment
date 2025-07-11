@@ -1,4 +1,5 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is a [Next.js](https://nextjs.org) project bootstrapped with
+[`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
 
@@ -14,23 +15,142 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the
+result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You can start editing the page by modifying `app/page.tsx`. The page
+auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project uses
+[`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts)
+to automatically optimize and load [Geist](https://vercel.com/font), a new font
+family for Vercel.
 
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js
+  features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+You can check out
+[the Next.js GitHub repository](https://github.com/vercel/next.js) - your
+feedback and contributions are welcome!
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The easiest way to deploy your Next.js app is to use the
+[Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)
+from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Check out our
+[Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying)
+for more details.
+
+//
+
+Social Feed Application This project implements a simple interactive social feed
+interface using Next.js, TypeScript, Tailwind CSS, SWR for data fetching, and
+basic localization. It demonstrates key front-end development practices,
+including infinite scrolling, theme toggling, and basic unit testing.
+
+Features Feed Page (/feed):
+
+Displays posts with infinite scrolling.
+
+Shows loading placeholders while fetching data.
+
+Post Page (/posts/[id]):
+
+Displays detailed post content.
+
+Includes a comment section.
+
+Create Post Page (/posts/new):
+
+Implements a basic text editor with live preview.
+
+Theme Toggle:
+
+Supports light/dark mode switching.
+
+Persists theme preference in localStorage.
+
+Localization:
+
+Basic support for English and Spanish.
+
+Technical Stack Framework: Next.js (App Router)
+
+Language: TypeScript
+
+Styling: Tailwind CSS
+
+Data Fetching: SWR (Stale-While-Revalidate)
+
+Image Optimization: next/image
+
+State Management: React Context (for Theme and Localization)
+
+Testing: Jest, React Testing Library
+
+Run the Development Server: npm run dev
+
+Open http://localhost:3000 in your browser.
+
+Run Tests:
+
+npm test
+
+Usage Navigate to /feed to see the infinite scrolling feed.
+
+Click on a post to go to its detail page (/posts/[id]).
+
+Navigate to /posts/new to create a new post.
+
+Use the theme toggle button (usually in the header/footer) to switch between
+light and dark modes.
+
+Mock Backend Endpoints The application uses a mock API (lib/mockApi.ts) that
+simulates the following endpoints:
+
+GET /api/posts?\_page={page}&\_limit={limit}: Fetches a paginated list of posts.
+
+GET /api/posts/{id}: Fetches a single post by ID.
+
+GET /api/posts/{id}/comments: Fetches comments for a specific post.
+
+POST /api/posts: Creates a new post.
+
+POST /api/posts/{id}/comments: Adds a new comment to a post.
+
+These are simulated client-side with delays to mimic network requests.
+
+Key Implementation Details Infinite Scrolling: Implemented using
+IntersectionObserver to detect when the last post in the list comes into view,
+triggering the next page load.
+
+SWR: Used for efficient data fetching, caching, and revalidation.
+
+Tailwind CSS: Provides a utility-first approach for styling, ensuring
+responsiveness and consistency.
+
+Theme Persistence: The ThemeProvider uses localStorage to save the user's
+preferred theme.
+
+Localization: A simple context provides a t function for translating strings.
+
+Image Optimization: next/image is used for responsive image loading.
+
+Future Enhancements More robust error handling and UI feedback.
+
+User authentication and authorization.
+
+Real backend integration.
+
+Advanced text editor features (e.g., Markdown support).
+
+More comprehensive unit and integration tests.
+
+Accessibility improvements.
